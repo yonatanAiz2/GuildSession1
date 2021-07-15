@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import styled from "styled-components";
+import { Normalize } from "styled-normalize";
+import Mocking from "./components/Mocking";
+import Redux from "./components/Redux";
+import store from "./components/Redux/store";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      <Normalize />
+      <Title>Testing with jest and react testing library</Title>
+      <Mocking />
+      <Provider store={store}>
+        <Redux />
+      </Provider>
+    </Main>
   );
 }
 
+const Main = styled.main`
+  display: flex;
+  padding: 2rem 9rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  align-text: center;
+`;
 export default App;
